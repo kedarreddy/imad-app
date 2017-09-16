@@ -17,6 +17,24 @@ var articleone={
     this is the conent of my first article .is is the conent of my first article .is is the conent of my first article .is is the conent of my first article
     </p>`
 };
+var articletwo={
+    title:'article-two|kedar Reddy',
+    heading:'article-two',
+    date:'sep 16 2107',
+    content:`
+      <p>
+       this is my second article conten t that is released
+    </p>`
+};
+var articlethree={
+    title:'article-three|kedar Reddy',
+    heading:'article-three',
+    date:'sep 16 2107',
+    content:`
+      <p>
+       this is my third article content that is released
+    </p>`
+};
 function createTemplate(data) {
     var title=data.title;
     var date=data.date;
@@ -62,11 +80,11 @@ app.get('/article-one',function(req,res){
 });
 
 app.get('/article-two',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
+    res.send(createTemplate(articletwo));
 });
 
 app.get('/article-three',function(req,res){
-   res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+    res.send(createTemplate(articlethree));
 });
 
 app.get('/ui/style.css', function (req, res) {
