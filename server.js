@@ -76,16 +76,9 @@ return htmlTemplate;
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/:articlename',function(req,res){
-   res.send(createTemplate(articleone));
-});
-
-app.get('/:articlename',function(req,res){
-    res.send(createTemplate(articletwo));
-});
-
-app.get('/:articlename',function(req,res){
-    res.send(createTemplate(articlethree));
+app.get('/:articleName',function(req,res){
+    var articleName=req.params.articleName;
+   res.send(createTemplate(article[articleName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
